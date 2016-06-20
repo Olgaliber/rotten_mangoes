@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  director: MyString
+  runtime_in_minutes: 1
+  description: MyText
+  poster_image_: MyString
+
+two:
+  title: MyString
+  director: MyString
+  runtime_in_minutes: 1
+  description: MyText
+  poster_image_: MyString
