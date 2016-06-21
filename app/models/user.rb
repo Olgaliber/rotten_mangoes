@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
 	def has_secure_password
 	end
 
+	def full_name
+	  "#{firstname} #{lastname}"
+	end
+
 end
