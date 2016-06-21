@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def new
   	@user = User.new
   end
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
     	session[:user_id] = @user.id # auto log in
-      redirect_to movies_path
+      redirect_to movies_path, notice: "Welcome aboard, #{@user.firstname}!"
     else
       render :new
     end
