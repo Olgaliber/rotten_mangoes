@@ -1,5 +1,20 @@
 <h1> HELLO </h1>
 
-<% @users.each do |user| %>
-<h2><%= user.firstname %></h2>
- <% end %>
+ <div class="container">
+     <div class="users row">
+     		<table>
+         <%= paginate(@users) %>
+         <% @users.each do |user| %>
+         <div class="panel panel-default">
+     				<tr>
+             <td><%= user.full_name %></td>  
+             <td><%= user.email %></td>
+             <td><%= user.updated_at %></td>
+            </tr>
+         </div>
+         <% end %>
+       	</table>
+     </div>
+ </div>
+
+ 	<!-- olga@olhga.li	 -->

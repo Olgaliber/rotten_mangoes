@@ -29,14 +29,14 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-
 gem 'rmagick'
 
 gem 'carrierwave'
 
 gem 'pry-rails', :group => :development
 
-feature/admins
+gem 'kaminari'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
