@@ -8,6 +8,9 @@
 
 <hr>
 
+    <%= image_tag(@movie.image_url(:thumb)).to_s if @movie.image? %>
+
+
 <h3>Reviews of <em><%= @movie.title %></em></h3>
 <% if current_user %>
   <% @movie.reviews.each do |review| %>
