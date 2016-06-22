@@ -1,5 +1,9 @@
 RottenMangoes::Application.routes.draw do
 
+  get "admin/index"
+  get "admin/show"
+  get "admin/new"
+  get "admin/edit"
   get "reviews/new"
   get "reviews/create"
   resources :movies do
@@ -14,7 +18,15 @@ RottenMangoes::Application.routes.draw do
   # get "users/new"
   # get "users/create"
 
+  namespace :admin do
+    resources :users
+  end
+
   Rails.application.routes.draw do
+  get "admin/index"
+  get "admin/show"
+  get "admin/new"
+  get "admin/edit"
     get "reviews/new"
     get "reviews/create"
     get "sessions/new"
