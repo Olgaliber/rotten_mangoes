@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
 	def index
 		if params[:search]
+			binding.pry
 		 	@movies = Movie.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}"])
 	  else
 	  	@movies = Movie.all
