@@ -1,8 +1,19 @@
 class MoviesController < ApplicationController
+	
 	def index
-		if params[:search]
-			binding.pry
-		 	@movies = Movie.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}"])
+
+		if params[:title] && params[:title].length > 0
+		 	@movies = Movie.find(:all, :conditions => ['title LIKE ?', "%#{params[:title]}%"])
+		elsif params[:director] && params[:director].length > 0	
+		 	@movies = Movie.find(:all, :conditions => ['director LIKE ?', "%#{params[:director]}%"]) 
+		elsif params[:duration] && params[:duration].length > 0 
+			if params[:duration] == "Under 90 minutes"
+				@movies = Movie.where("runtime_in_minutes < ?", "90")
+			elsif params[:duration] == "Between 90 and 120 minutes"	
+				@movies = Movie.where("runtime_in_minutes between ? and ?", "90", "120")
+			else 
+			 	@movies = Movie.where("runtime_in_minutes > ?", "120")
+			end	 	
 	  else
 	  	@movies = Movie.all
 	  end
