@@ -33,7 +33,6 @@ class MoviesController < ApplicationController
 
 	def create
 	  @movie = Movie.new(movie_params)
-
 	  if @movie.save
 	    redirect_to movies_path, notice: "#{@movie.title} was submitted successfully!"
 	  else
@@ -56,6 +55,8 @@ class MoviesController < ApplicationController
 	  @movie.destroy
 	  redirect_to movies_path
 	end
+
+
 
 	protected
 
