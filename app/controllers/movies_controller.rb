@@ -8,11 +8,11 @@ class MoviesController < ApplicationController
 		 	@movies = Movie.find(:all, :conditions => ['director LIKE ?', "%#{params[:director]}%"]) 
 		elsif params[:duration] && params[:duration].length > 0 
 			if params[:duration] == "Under 90 minutes"
-				@movies = Movie.where("runtime_in_minutes < ?", "90")
+				@movies = Movie.duration 
 			elsif params[:duration] == "Between 90 and 120 minutes"	
-				@movies = Movie.where("runtime_in_minutes between ? and ?", "90", "120")
+				@movies = Movie.duration
 			else 
-			 	@movies = Movie.where("runtime_in_minutes > ?", "120")
+			 	@movies = Movie.duration
 			end	 	
 	  else
 	  	@movies = Movie.all

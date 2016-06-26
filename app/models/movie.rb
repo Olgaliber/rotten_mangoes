@@ -1,6 +1,9 @@
-
-
 class Movie < ActiveRecord::Base
+	scope :duration, -> { where("runtime_in_minutes < ?", "90") }
+	scope :duration, -> { where("runtime_in_minutes between ? and ?", "90", "120") }
+	scope :duration, -> { where("runtime_in_minutes > ?", "120") }
+
+	
 
 	mount_uploader :image, MovieUploader
 
@@ -17,9 +20,6 @@ class Movie < ActiveRecord::Base
 
 	validates :description,
 	  presence: true
-
-	#validates :poster_image_url,
-	 # presence: true
 
 	validates :release_date,
 	  presence: true
