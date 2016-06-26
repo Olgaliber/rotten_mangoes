@@ -2,8 +2,10 @@ class MoviesController < ApplicationController
 	
 	def index
 
-		if params[:title] && params[:title].length > 0
-		 	@movies = Movie.find(:all, :conditions => ['title LIKE ?', "%#{params[:title]}%"])
+		if params[:find] && params[:find].length > 0
+		 	by_title = Movie.find(:all, :conditions => ['title LIKE ?', "%#{params[:find]}%"])
+		 	by_director = Movie.find(:all, :conditions => ['director LIKE ?', "%#{params[:find]}%"])
+		 	@movies = by_title + by_director
 		elsif params[:director] && params[:director].length > 0	
 		 	@movies = Movie.find(:all, :conditions => ['director LIKE ?', "%#{params[:director]}%"]) 
 		elsif params[:duration] && params[:duration].length > 0 

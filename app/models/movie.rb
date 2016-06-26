@@ -3,8 +3,6 @@ class Movie < ActiveRecord::Base
 	scope :duration, -> { where("runtime_in_minutes between ? and ?", "90", "120") }
 	scope :duration, -> { where("runtime_in_minutes > ?", "120") }
 
-	
-
 	mount_uploader :image, MovieUploader
 
 	has_many :reviews
